@@ -36,4 +36,17 @@ public class UnitTest1
         // Assert
         Assert.Equal("11% - 1210", result);
     }
+    
+    [Fact]
+    public void ShouldReturn30percentIfLowerThan78570()
+    {
+        // Arrange 
+        var taxes = new Taxes.Taxes();
+        const int income = 30000;
+        // Act
+        var result = taxes.CalculateTax(income);
+        
+        // Assert
+        Assert.Equal("30% - 9000", result);
+    }
 }
