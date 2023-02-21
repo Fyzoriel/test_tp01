@@ -2,7 +2,7 @@
 
 public class Taxes
 {
-    public decimal CalculateTax(int income)
+    public string CalculateTax(int income)
     {
         ValidateIncome(income);
         throw new NotImplementedException();
