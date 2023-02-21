@@ -37,9 +37,9 @@ public class FizzBuzz
         switch (number)
         {
             case < 15:
-                throw new System.ArgumentException("Number must be greater than 15");
+                throw new ArgumentException("Number must be greater than 15");
             case > 150:
-                throw new System.ArgumentException("Number must be less than 150");
+                throw new ArgumentException("Number must be less than 150");
         }
     }
 }
