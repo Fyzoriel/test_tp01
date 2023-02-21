@@ -8,7 +8,7 @@ public class Taxes
         throw new NotImplementedException();
     }
     
-    public void ValidateIncome(int income)
+    private void ValidateIncome(int income)
     {
         if (income < 0)
         {
