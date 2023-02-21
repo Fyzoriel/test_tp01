@@ -22,7 +22,7 @@ public class Taxes
             return $"41% - {income * 0.41}";
         }
         
-        throw new NotImplementedException();
+        return $"45% - {income * 0.45}";
     }
     
     private void ValidateIncome(int income)
