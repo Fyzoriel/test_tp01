@@ -15,5 +15,9 @@ public class FizzBuzz
         {
             throw new System.ArgumentException("Number must be greater than 15");
         }
+        if (number > 150)
+        {
+            throw new System.ArgumentException("Number must be less than 150");
+        }
     }
 }
