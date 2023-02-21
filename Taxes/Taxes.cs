@@ -13,6 +13,10 @@ public class Taxes
         {
             return $"11% - {income * 0.11}";
         }
+        if (income <= 78570)
+        {
+            return $"30% - {income * 0.3}";
+        }
         
         throw new NotImplementedException();
     }
