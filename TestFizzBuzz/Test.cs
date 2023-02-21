@@ -7,8 +7,9 @@ public class UnitTest1
     {
         // Arrange
         var fizzBuzz = new FizzBuzz.FizzBuzz();
-
+        const int number = 14;
+        
         // Act & Assert
-        Assert.Throws<ArgumentException>(() => fizzBuzz.GetFizzBuzz(0));
+        Assert.Throws<ArgumentException>(() => fizzBuzz.GetFizzBuzz(number));
     }
 }
