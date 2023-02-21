@@ -8,6 +8,6 @@ public class UnitTest1
         // Arrange 
         var taxes = new Taxes.Taxes();
         // Act && Assert
-        Assert.Throws<ArgumentOutOfRangeException>(() => taxes.CalculateTax(-1));
+        Assert.Throws<ArgumentException>(() => taxes.CalculateTax(-1));
     }
 }
