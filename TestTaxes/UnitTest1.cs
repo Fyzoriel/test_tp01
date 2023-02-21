@@ -62,4 +62,17 @@ public class UnitTest1
         // Assert
         Assert.Equal("41% - 41000", result);
     }
+    
+    [Fact]
+    public void ShouldReturn45percentIfHigherThan168994()
+    {
+        // Arrange 
+        var taxes = new Taxes.Taxes();
+        const int income = 200000;
+        // Act
+        var result = taxes.CalculateTax(income);
+        
+        // Assert
+        Assert.Equal("45% - 90000", result);
+    }
 }
