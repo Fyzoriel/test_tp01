@@ -18,6 +18,11 @@ public class UnitTest1
     [InlineData(2, 2, "Thirty - Thirty")]
     
     [InlineData(3, 0, "Forty - Love")]
+    [InlineData(0, 3, "Love - Forty")]
+    [InlineData(3, 1, "Forty - Fifteen")]
+    [InlineData(1, 3, "Fifteen - Forty")]
+    [InlineData(3, 2, "Forty - Thirty")]
+    [InlineData(2, 3, "Thirty - Forty")]
     public void TestScore(int playerOneBall, int playerTwoBall, string expectedScore)
     {
         // Arrange
