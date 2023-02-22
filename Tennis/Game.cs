@@ -19,6 +19,10 @@ public class Game
         {
             return "Fifteen";
         }
+        if (playerBalls == 2)
+        {
+            return "Thirty";
+        }
 
         throw new NotImplementedException();
     }
