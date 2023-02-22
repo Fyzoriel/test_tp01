@@ -15,6 +15,10 @@ public class Game
         {
             return "Love";
         }
+        if (playerBalls == 1)
+        {
+            return "Fifteen";
+        }
 
         throw new NotImplementedException();
     }
