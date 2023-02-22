@@ -6,13 +6,9 @@ public class Game
     
     public string GetScore()
     {
-        
-        if (_playerOneBalls == _playerTwoBalls)
+        if (IsDeuce())
         {
-            if (_playerOneBalls >= 3)
-            {
-                return "Deuce";
-            }
+            return "Deuce";
         }
         
         return $"{GetPlayerScore(_playerOneBalls)} - {GetPlayerScore(_playerTwoBalls)}";;
@@ -27,6 +23,11 @@ public class Game
             2 => "Thirty",
             _ => "Forty",
         };
+    }
+    
+    private bool IsDeuce()
+    {
+        return _playerOneBalls == _playerTwoBalls && _playerOneBalls >= 3;
     }
     
     public void PlayerOneScored()
