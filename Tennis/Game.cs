@@ -6,6 +6,15 @@ public class Game
     
     public string GetScore()
     {
+        if (_playerOneBalls >= 4 && _playerOneBalls - _playerTwoBalls >= 2)
+        {
+            return "Player One Wins";
+        }
+        if (_playerTwoBalls >= 4 && _playerTwoBalls - _playerOneBalls >= 2)
+        {
+            return "Player Two Wins";
+        }
+        
         if (IsDeuce())
         {
             return "Deuce";
