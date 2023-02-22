@@ -6,7 +6,7 @@ public class Game
     
     public string GetScore()
     {
-        if (IsOnePlayerMoreThan40() && IsAtLeastTwoBallsDifference())
+        if (IsOnePlayerWinner())
         {
             return $"{GetPlayerWithHighestBalls()} Wins";
         }
@@ -40,6 +40,11 @@ public class Game
     private bool IsAdvantage()
     {
         return BothPlayersHasAtLeastForty() && IsOneBallDifference();
+    }
+    
+    private bool IsOnePlayerWinner()
+    {
+        return IsOnePlayerMoreThan40() && IsAtLeastTwoBallsDifference();
     }
 
     private bool IsOnePlayerMoreThan40()
