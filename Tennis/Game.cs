@@ -10,6 +10,14 @@ public class Game
         {
             return "Deuce";
         }
+        if (_playerOneBalls >= 3 && _playerTwoBalls >= 3 && _playerOneBalls - _playerTwoBalls == 1)
+        {
+            return "Advantage Player One";
+        }
+        if (_playerOneBalls >= 3 && _playerTwoBalls >= 3 && _playerTwoBalls - _playerOneBalls == 1)
+        {
+            return "Advantage Player Two";
+        }
         
         return $"{GetPlayerScore(_playerOneBalls)} - {GetPlayerScore(_playerTwoBalls)}";;
     }
