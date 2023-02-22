@@ -22,6 +22,15 @@ public class Game
         return $"{GetPlayerScore(_playerOneBalls)} - {GetPlayerScore(_playerTwoBalls)}";;
     }
     
+    public void PlayerOneScored()
+    {
+        _playerOneBalls++;
+    }
+    public void PlayerTwoScored()
+    {
+        _playerTwoBalls++;
+    }
+    
     private static string GetPlayerScore(int playerBalls)
     {
         return playerBalls switch
@@ -75,14 +84,5 @@ public class Game
     private bool BothPlayersHasAtLeastForty()
     {
         return _playerOneBalls >= 3 && _playerTwoBalls >= 3;
-    }
-    
-    public void PlayerOneScored()
-    {
-        _playerOneBalls++;
-    }
-    public void PlayerTwoScored()
-    {
-        _playerTwoBalls++;
     }
 }
