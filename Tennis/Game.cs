@@ -10,7 +10,6 @@ public class Game
         {
             return $"{GetPlayerWithHighestBalls()} Wins";
         }
-
         if (IsDeuce())
         {
             return "Deuce";

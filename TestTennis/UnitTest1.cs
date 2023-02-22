@@ -31,6 +31,14 @@ public class UnitTest1
     
     [InlineData(4, 2, "Player One Wins")]
     [InlineData(2, 4, "Player Two Wins")]
+    
+    [InlineData(6,5, "Advantage Player One")]
+    [InlineData(5,6, "Advantage Player Two")]
+    
+    [InlineData(6,6, "Deuce")]
+    
+    [InlineData(7,5, "Player One Wins")]
+    [InlineData(5,7, "Player Two Wins")]
     public void TestScore(int playerOneBall, int playerTwoBall, string expectedScore)
     {
         // Arrange
