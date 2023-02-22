@@ -6,6 +6,7 @@ public class UnitTest1
 {
     [Theory]
     [InlineData(0, 0, "Love - Love")]
+    [InlineData(1, 0, "Fifteen - Love")]
     public void TestScore(int playerOneBall, int playerTwoBall, string expectedScore)
     {
         // Arrange
