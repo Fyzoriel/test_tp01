@@ -1,0 +1,6 @@
+C:\Users\fyzoriel\Desktop\cnam\Test\TP1\TestTennis\bin\Debug\net6.0\CoverletSourceRootsMapping
+C:\Users\fyzoriel\Desktop\cnam\Test\TP1\TestTennis\obj\Debug\net6.0\TestTennis.csproj.AssemblyReference.cache
+C:\Users\fyzoriel\Desktop\cnam\Test\TP1\TestTennis\obj\Debug\net6.0\TestTennis.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\fyzoriel\Desktop\cnam\Test\TP1\TestTennis\obj\Debug\net6.0\TestTennis.AssemblyInfoInputs.cache
+C:\Users\fyzoriel\Desktop\cnam\Test\TP1\TestTennis\obj\Debug\net6.0\TestTennis.AssemblyInfo.cs
+C:\Users\fyzoriel\Desktop\cnam\Test\TP1\TestTennis\obj\Debug\net6.0\TestTennis.csproj.CoreCompileInputs.cache
