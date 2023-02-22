@@ -6,15 +6,11 @@ public class Game
     
     public string GetScore()
     {
-        if (_playerOneBalls >= 4 && _playerOneBalls - _playerTwoBalls >= 2)
+        if (IsOnePlayerMoreThan40() && IsAtLeastTwoBallsDifference())
         {
-            return "Player One Wins";
+            return $"{GetPlayerWithHighestBalls()} Wins";
         }
-        if (_playerTwoBalls >= 4 && _playerTwoBalls - _playerOneBalls >= 2)
-        {
-            return "Player Two Wins";
-        }
-        
+
         if (IsDeuce())
         {
             return "Deuce";
@@ -45,6 +41,16 @@ public class Game
     private bool IsAdvantage()
     {
         return BothPlayersHasAtLeastForty() && IsOneBallDifference();
+    }
+
+    private bool IsOnePlayerMoreThan40()
+    {
+        return _playerOneBalls >= 4 || _playerTwoBalls >= 4;
+    }
+
+    private bool IsAtLeastTwoBallsDifference()
+    {
+        return Math.Abs(_playerOneBalls - _playerTwoBalls) >= 2;
     }
     
     private bool IsOneBallDifference()
