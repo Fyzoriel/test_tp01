@@ -4,7 +4,7 @@ namespace TestTennis;
 
 public class UnitTest1
 {
-    [Fact]
+    [Theory]
     [InlineData(0, 0, "Love - Love")]
     public void TestScore(int playerOneBall, int playerTwoBall, string expectedScore)
     {
