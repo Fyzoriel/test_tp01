@@ -11,24 +11,13 @@ public class Game
     
     private string GetPlayerScore(int playerBalls)
     {
-        if (playerBalls == 0)
+        return playerBalls switch
         {
-            return "Love";
-        }
-        if (playerBalls == 1)
-        {
-            return "Fifteen";
-        }
-        if (playerBalls == 2)
-        {
-            return "Thirty";
-        }
-        if (playerBalls == 3)
-        {
-            return "Forty";
-        }
-
-        throw new NotImplementedException();
+            0 => "Love",
+            1 => "Fifteen",
+            2 => "Thirty",
+            _ => "Forty",
+        };
     }
     
     public void PlayerOneScored()
