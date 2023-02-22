@@ -23,6 +23,10 @@ public class Game
         {
             return "Thirty";
         }
+        if (playerBalls == 3)
+        {
+            return "Forty";
+        }
 
         throw new NotImplementedException();
     }
