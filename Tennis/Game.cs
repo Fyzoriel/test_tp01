@@ -6,6 +6,15 @@ public class Game
     
     public string GetScore()
     {
+        
+        if (_playerOneBalls == _playerTwoBalls)
+        {
+            if (_playerOneBalls >= 3)
+            {
+                return "Deuce";
+            }
+        }
+        
         return $"{GetPlayerScore(_playerOneBalls)} - {GetPlayerScore(_playerTwoBalls)}";;
     }
     
