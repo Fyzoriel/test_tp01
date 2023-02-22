@@ -10,19 +10,15 @@ public class Game
         {
             return "Deuce";
         }
-        if (_playerOneBalls >= 3 && _playerTwoBalls >= 3 && _playerOneBalls - _playerTwoBalls == 1)
+        if (IsAdvantage())
         {
-            return "Advantage Player One";
+            return $"Advantage {GetPlayerWithHighestBalls()}";
         }
-        if (_playerOneBalls >= 3 && _playerTwoBalls >= 3 && _playerTwoBalls - _playerOneBalls == 1)
-        {
-            return "Advantage Player Two";
-        }
-        
+
         return $"{GetPlayerScore(_playerOneBalls)} - {GetPlayerScore(_playerTwoBalls)}";;
     }
     
-    private string GetPlayerScore(int playerBalls)
+    private static string GetPlayerScore(int playerBalls)
     {
         return playerBalls switch
         {
@@ -35,7 +31,31 @@ public class Game
     
     private bool IsDeuce()
     {
-        return _playerOneBalls == _playerTwoBalls && _playerOneBalls >= 3;
+        return AreScoreEqual() && BothPlayersHasAtLeastForty();
+    }
+    private bool IsAdvantage()
+    {
+        return BothPlayersHasAtLeastForty() && IsOneBallDifference();
+    }
+    
+    private bool IsOneBallDifference()
+    {
+        return Math.Abs(_playerOneBalls - _playerTwoBalls) == 1;
+    }
+    
+    private bool AreScoreEqual()
+    {
+        return _playerOneBalls == _playerTwoBalls;
+    }
+    
+    private string GetPlayerWithHighestBalls()
+    {
+        return _playerOneBalls > _playerTwoBalls ? "Player One" : "Player Two";
+    }
+    
+    private bool BothPlayersHasAtLeastForty()
+    {
+        return _playerOneBalls >= 3 && _playerTwoBalls >= 3;
     }
     
     public void PlayerOneScored()
