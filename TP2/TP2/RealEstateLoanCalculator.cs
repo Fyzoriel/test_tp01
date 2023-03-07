@@ -2,19 +2,20 @@
 
 public class RealEstateLoanCalculator
 {
-    private int _loanAmount;
-    private float _interestRate;
-    private int _loanTermInYears;
+    private readonly int _loanAmount;
+    private readonly double _interestRate;
+    private readonly int _loanTermInMonths;
     
-    public RealEstateLoanCalculator(int loanAmount, float interestRate, int loanTermInYears)
+    public RealEstateLoanCalculator(int loanAmount, double interestRate, int loanTermInMonths)
     {
         _loanAmount = loanAmount;
         _interestRate = interestRate;
-        _loanTermInYears = loanTermInYears;
+        _loanTermInMonths = loanTermInMonths;
     }
     
-    public float CalculateMonthlyPayment()
+    public double CalculateMonthlyPayment()
     {
-        return 237.11f;
+        double monthlyInterestRate = _interestRate / 12;
+        return Math.Round((_loanAmount * monthlyInterestRate) / (1 - Math.Pow(1 + monthlyInterestRate, -_loanTermInMonths)), 2);
     }
 }
