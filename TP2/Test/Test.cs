@@ -18,4 +18,11 @@ public class UnitTest1
         // Assert
         Assert.Equal(expectedMonthlyPayment, monthlyPayment);
     }
+
+    [Fact]
+    public void ItShouldReturnCorrectMonthlyInsurancePayment()
+    {
+        var monthlyInsurancePayment = new MonthlyInsurancePayment(50000, false, false, false, true, false);
+        Assert.Equal(125, monthlyInsurancePayment.CalculateMonthlyInsurancePayment());
+    }
 }
