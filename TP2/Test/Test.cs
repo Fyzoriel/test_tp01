@@ -13,7 +13,7 @@ public class UnitTest1
         var realEstateLoanCalculator = new RealEstateLoanCalculator(loanAmount, interestRate, loanTermInMonths);
 
         // Act
-        var monthlyPayment = realEstateLoanCalculator.CalculateMonthlyPayment();
+        double monthlyPayment = realEstateLoanCalculator.CalculateMonthlyPayment();
         
         // Assert
         Assert.Equal(expectedMonthlyPayment, monthlyPayment);

@@ -2,11 +2,11 @@
 
 public class RealEstateLoanCalculator
 {
-    private readonly int _loanAmount;
+    private readonly LoanAmount _loanAmount;
     private readonly double _interestRate;
-    private readonly int _loanTermInMonths;
+    private readonly LoanTermInMonths _loanTermInMonths;
     
-    public RealEstateLoanCalculator(int loanAmount, double interestRate, int loanTermInMonths)
+    public RealEstateLoanCalculator(LoanAmount loanAmount, double interestRate, LoanTermInMonths loanTermInMonths)
     {
         _loanAmount = loanAmount;
         _interestRate = interestRate;
