@@ -9,8 +9,18 @@ public class MonthlyInsurancePayment
     private readonly bool _isComputerEngineer;
     private readonly bool _isFighterPilot;
 
-    MonthlyInsurancePayment(LoanAmount loanAmount, bool isSporty, bool isSmoker, bool hasHeartCondition, bool isComputerEngineer, bool isFighterPilot)
+    public MonthlyInsurancePayment(LoanAmount loanAmount, bool isSporty, bool isSmoker, bool hasHeartCondition, bool isComputerEngineer, bool isFighterPilot)
     {
-
+        _loanAmount = loanAmount;
+        _isSporty = isSporty;
+        _isSmoker = isSmoker;
+        _hasHeartCondition = hasHeartCondition;
+        _isComputerEngineer = isComputerEngineer;
+        _isFighterPilot = isFighterPilot;
+    }
+    
+    public double CalculateMonthlyInsurancePayment()
+    {
+        return 125;
     }
 }

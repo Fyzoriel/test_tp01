@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Fyzoriel\\Desktop\\cnam\\test_tp01\\TP2\\TP2\\TP2.csproj": {}
+    "C:\\Users\\fyzoriel\\Desktop\\cnam\\Test\\TP2\\TP2\\TP2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Fyzoriel\\Desktop\\cnam\\test_tp01\\TP2\\TP2\\TP2.csproj": {
+    "C:\\Users\\fyzoriel\\Desktop\\cnam\\Test\\TP2\\TP2\\TP2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Fyzoriel\\Desktop\\cnam\\test_tp01\\TP2\\TP2\\TP2.csproj",
+        "projectUniqueName": "C:\\Users\\fyzoriel\\Desktop\\cnam\\Test\\TP2\\TP2\\TP2.csproj",
         "projectName": "TP2",
-        "projectPath": "C:\\Users\\Fyzoriel\\Desktop\\cnam\\test_tp01\\TP2\\TP2\\TP2.csproj",
-        "packagesPath": "C:\\Users\\Fyzoriel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Fyzoriel\\Desktop\\cnam\\test_tp01\\TP2\\TP2\\obj\\",
+        "projectPath": "C:\\Users\\fyzoriel\\Desktop\\cnam\\Test\\TP2\\TP2\\TP2.csproj",
+        "packagesPath": "C:\\Users\\fyzoriel\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\fyzoriel\\Desktop\\cnam\\Test\\TP2\\TP2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Fyzoriel\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\fyzoriel\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -53,7 +53,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Users\\Fyzoriel\\.dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\fyzoriel\\.dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }
