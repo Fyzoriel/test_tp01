@@ -35,18 +35,23 @@ public class UnitTest1
         Assert.Equal(expected, monthlyInsurancePayment.CalculateMonthlyInsurancePayment());
     }
     
-    [Fact]
-    public void ItShouldReturnCorrectMonthlyPayment()
+    [Theory]
+    [InlineData(50000, 0.03, 300, false, false, false, false, false, 249.61)]
+    [InlineData(50000, 0.03, 300, true, false, true, false, true, 266.28)]
+    public void ItShouldReturnCorrectMonthlyPayment(
+        int loanAmount, double interestRate, int loanTermInMonths,
+        bool isSporty, bool isSmoker, bool hasHeartCondition,
+        bool isComputerEngineer, bool isFighterPilot, double expected)
     {
         // Arrange
-        var realEstateLoanCalculator = new RealEstateLoanCalculator(50000, 0.03, 300);
-        var monthlyInsurancePayment = new MonthlyInsurancePayment(50000, false, false, false, false, false);
+        var realEstateLoanCalculator = new RealEstateLoanCalculator(loanAmount, interestRate, loanTermInMonths);
+        var monthlyInsurancePayment = new MonthlyInsurancePayment(loanAmount, isSporty, isSmoker, hasHeartCondition, isComputerEngineer, isFighterPilot);
         var loanCalculator = new LoanCalculator(realEstateLoanCalculator, monthlyInsurancePayment);
 
         // Act
         double monthlyPayment = loanCalculator.CalculateMonthlyPayment();
         
         // Assert
-        Assert.Equal(249.61, monthlyPayment);
+        Assert.Equal(expected, monthlyPayment);
     }
 }

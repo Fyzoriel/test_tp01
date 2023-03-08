@@ -12,6 +12,6 @@ public class LoanCalculator
 
     public double CalculateMonthlyPayment()
     {
-        return _realEstateLoanCalculator.CalculateMonthlyPayment() + _monthlyInsurancePayment.CalculateMonthlyInsurancePayment();
+        return Math.Round(_realEstateLoanCalculator.CalculateMonthlyPayment() + _monthlyInsurancePayment.CalculateMonthlyInsurancePayment(), 2);
     }
 }
