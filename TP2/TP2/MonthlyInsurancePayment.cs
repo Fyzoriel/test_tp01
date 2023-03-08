@@ -3,24 +3,18 @@
 public class MonthlyInsurancePayment
 {
     private readonly LoanAmount _loanAmount;
-    private readonly bool _isSporty;
-    private readonly bool _isSmoker;
-    private readonly bool _hasHeartCondition;
-    private readonly bool _isComputerEngineer;
-    private readonly bool _isFighterPilot;
+    private readonly double _interestRate;
 
     public MonthlyInsurancePayment(LoanAmount loanAmount, bool isSporty, bool isSmoker, bool hasHeartCondition, bool isComputerEngineer, bool isFighterPilot)
     {
         _loanAmount = loanAmount;
-        _isSporty = isSporty;
-        _isSmoker = isSmoker;
-        _hasHeartCondition = hasHeartCondition;
-        _isComputerEngineer = isComputerEngineer;
-        _isFighterPilot = isFighterPilot;
+        _interestRate = 0.3;
+        if (isSporty) _interestRate -= 0.05;
     }
     
     public double CalculateMonthlyInsurancePayment()
     {
-        return 125;
+        var result = _loanAmount * _interestRate / 100 / 12;
+        return Math.Round(result, 2);
     }
 }

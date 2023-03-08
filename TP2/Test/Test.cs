@@ -19,10 +19,14 @@ public class UnitTest1
         Assert.Equal(expectedMonthlyPayment, monthlyPayment);
     }
 
-    [Fact]
-    public void ItShouldReturnCorrectMonthlyInsurancePayment()
+    [Theory]
+    [InlineData(50000, false, false, false, false, false, 12.5)]
+    [InlineData(50000, true, false, false, false, false, 10.42)]
+    public void ItShouldReturnCorrectMonthlyInsurancePayment(
+        int loanAmount, bool isSporty, bool isSmoker, bool hasHeartCondition, 
+        bool isComputerEngineer, bool isFighterPilot, double expected)
     {
-        var monthlyInsurancePayment = new MonthlyInsurancePayment(50000, false, false, false, true, false);
-        Assert.Equal(125, monthlyInsurancePayment.CalculateMonthlyInsurancePayment());
+        var monthlyInsurancePayment = new MonthlyInsurancePayment(loanAmount, isSporty, isSmoker, hasHeartCondition, isComputerEngineer, isFighterPilot);
+        Assert.Equal(expected, monthlyInsurancePayment.CalculateMonthlyInsurancePayment());
     }
 }
