@@ -40,7 +40,7 @@ public class UnitTest1
         var realEstateLoanCalculator = new RealEstateLoanCalculator(loanData, interestRate);
         var monthlyInsurancePayment = new InsurancePayment(loanData, isSporty, isSmoker, hasHeartCondition,
             isComputerEngineer, isFighterPilot);
-        var loanCalculator = new LoanCalculator(realEstateLoanCalculator, monthlyInsurancePayment);
+        var loanCalculator = new LoanAndInsuranceCalculator(realEstateLoanCalculator, monthlyInsurancePayment);
 
         // Act
         double monthlyPayment = loanCalculator.CalculateMonthlyPayment();

@@ -1,10 +1,10 @@
 ﻿namespace TP2;
 
-public class LoanCalculator
+public class LoanAndInsuranceCalculator
 {
-    RealEstateLoanCalculator _realEstateLoanCalculator;
-    InsurancePayment _insurancePayment;
-    public LoanCalculator(RealEstateLoanCalculator realEstateLoanCalculator, InsurancePayment insurancePayment)
+    ILoanCalculator _realEstateLoanCalculator;
+    IInsurancePayment _insurancePayment;
+    public LoanAndInsuranceCalculator(ILoanCalculator realEstateLoanCalculator, IInsurancePayment insurancePayment)
     {
         _realEstateLoanCalculator = realEstateLoanCalculator;
         _insurancePayment = insurancePayment;

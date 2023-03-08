@@ -1,6 +1,6 @@
 ﻿namespace TP2;
 
-public class InsurancePayment
+public class InsurancePayment : IInsurancePayment
 {
     private readonly LoanAmount _loanAmount;
     private readonly LoanTermInMonths _loanTermInMonths;

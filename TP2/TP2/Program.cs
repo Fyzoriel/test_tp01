@@ -16,7 +16,7 @@ var realEstateLoanCalculator = new RealEstateLoanCalculator(loanData, interestRa
 var insurancePayment = new InsurancePayment(loanData, isSporty, isSmoker, hasHeartCondition,
     isComputerEngineer, isFighterPilot);
 
-var loanCalculator = new LoanCalculator(realEstateLoanCalculator, insurancePayment);
+var loanCalculator = new LoanAndInsuranceCalculator(realEstateLoanCalculator, insurancePayment);
 
 var monthlyPayment = loanCalculator.CalculateMonthlyPayment();
 var monthlyInsurancePayment = insurancePayment.CalculateMonthlyInsurancePayment();
@@ -35,7 +35,7 @@ Console.WriteLine($"Total loan interest + total insurance payment: {totalLoanInt
 Console.WriteLine('\n');
 var repaidMonths = InputHandler.GetLoanAmountInput("Enter number of months to repay: ");
 
-Console.WriteLine($"Capital repaid after {repaidMonths} months: {LoanCalculator.CalculateCapitalRepaidAfterTime(monthlyPayment, repaidMonths)}");
+Console.WriteLine($"Capital repaid after {repaidMonths} months: {LoanAndInsuranceCalculator.CalculateCapitalRepaidAfterTime(monthlyPayment, repaidMonths)}");
 
 Console.WriteLine("Press any key to exit...");
 Console.ReadKey();

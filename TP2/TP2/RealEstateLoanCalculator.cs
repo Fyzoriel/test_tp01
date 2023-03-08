@@ -1,6 +1,6 @@
 ﻿namespace TP2;
 
-public class RealEstateLoanCalculator
+public class RealEstateLoanCalculator : ILoanCalculator
 {
     private readonly LoanAmount _loanAmount;
     private readonly double _interestRate;
