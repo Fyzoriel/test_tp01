@@ -7,7 +7,7 @@ public class UnitTest1
     [Theory]
     [InlineData(50000, 0.03, 300, 237.11)]
     [InlineData(100000, 0.03, 300, 474.21)]
-    public void ItShouldReturnCorrectMonthlyPayment(int loanAmount, double interestRate, int loanTermInMonths, double expectedMonthlyPayment)
+    public void ItShouldReturnCorrectRealEstateMonthlyPayment(int loanAmount, double interestRate, int loanTermInMonths, double expectedMonthlyPayment)
     {
         // Arrange
         var realEstateLoanCalculator = new RealEstateLoanCalculator(loanAmount, interestRate, loanTermInMonths);
@@ -33,5 +33,20 @@ public class UnitTest1
     {
         var monthlyInsurancePayment = new MonthlyInsurancePayment(loanAmount, isSporty, isSmoker, hasHeartCondition, isComputerEngineer, isFighterPilot);
         Assert.Equal(expected, monthlyInsurancePayment.CalculateMonthlyInsurancePayment());
+    }
+    
+    [Fact]
+    public void ItShouldReturnCorrectMonthlyPayment()
+    {
+        // Arrange
+        var realEstateLoanCalculator = new RealEstateLoanCalculator(50000, 0.03, 300);
+        var monthlyInsurancePayment = new MonthlyInsurancePayment(50000, false, false, false, false, false);
+        var loanCalculator = new LoanCalculator(realEstateLoanCalculator, monthlyInsurancePayment);
+
+        // Act
+        double monthlyPayment = loanCalculator.CalculateMonthlyPayment();
+        
+        // Assert
+        Assert.Equal(249.61, monthlyPayment);
     }
 }
