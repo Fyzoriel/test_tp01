@@ -3,11 +3,16 @@
 public class MonthlyInsurancePayment
 {
     private readonly LoanAmount _loanAmount;
-    private readonly double _interestRate;
+    private double _interestRate;
 
     public MonthlyInsurancePayment(LoanAmount loanAmount, bool isSporty, bool isSmoker, bool hasHeartCondition, bool isComputerEngineer, bool isFighterPilot)
     {
         _loanAmount = loanAmount;
+        CalculateInterestRate(isSporty, isSmoker, hasHeartCondition, isComputerEngineer, isFighterPilot);
+    }
+    
+    private void CalculateInterestRate(bool isSporty, bool isSmoker, bool hasHeartCondition, bool isComputerEngineer, bool isFighterPilot)
+    {
         _interestRate = 0.3;
         if (isSporty) _interestRate -= 0.05;
         if (isSmoker) _interestRate += 0.15;
