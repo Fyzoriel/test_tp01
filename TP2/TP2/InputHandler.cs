@@ -30,49 +30,52 @@ public class InputHandler
     {
         return GetValidInput(
             prompt,
-            input =>
-            {
-                if (!int.TryParse(input, out int amount))
-                {
-                    return false;
-                }
-
-                try
-                {
-                    _ = new LoanAmount(amount);
-                    return true;
-                }
-                catch (ArgumentOutOfRangeException e)
-                {
-                    Console.WriteLine(e.Message);
-                    return false;
-                }
-            },
+            LoanAmountValidator,
             int.Parse);
+    }
+
+    private static bool LoanAmountValidator(string input)
+    {
+        if (!int.TryParse(input, out int amount))
+        {
+            return false;
+        }
+
+        try
+        {
+            _ = new LoanAmount(amount);
+            return true;
+        }
+        catch (ArgumentOutOfRangeException e)
+        {
+            Console.WriteLine(e.Message);
+            return false;
+        }
     }
     
     public static LoanTermInMonths GetLoanTermInMonthsInput(string prompt)
     {
         return GetValidInput(
             prompt,
-            input =>
-            {
-                if (!int.TryParse(input, out int amount))
-                {
-                    return false;
-                }
-
-                try
-                {
-                    _ = new LoanTermInMonths(amount);
-                    return true;
-                }
-                catch (ArgumentOutOfRangeException e)
-                {
-                    Console.WriteLine(e.Message);
-                    return false;
-                }
-            },
+            LoanTermInMonthsValidator,
             int.Parse);
+    }
+    private static bool LoanTermInMonthsValidator(string input)
+    {
+        if (!int.TryParse(input, out int amount))
+        {
+            return false;
+        }
+
+        try
+        {
+            _ = new LoanTermInMonths(amount);
+            return true;
+        }
+        catch (ArgumentOutOfRangeException e)
+        {
+            Console.WriteLine(e.Message);
+            return false;
+        }
     }
 }
