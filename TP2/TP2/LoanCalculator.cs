@@ -3,15 +3,15 @@
 public class LoanCalculator
 {
     RealEstateLoanCalculator _realEstateLoanCalculator;
-    MonthlyInsurancePayment _monthlyInsurancePayment;
-    public LoanCalculator(RealEstateLoanCalculator realEstateLoanCalculator, MonthlyInsurancePayment monthlyInsurancePayment)
+    InsurancePayment _insurancePayment;
+    public LoanCalculator(RealEstateLoanCalculator realEstateLoanCalculator, InsurancePayment insurancePayment)
     {
         _realEstateLoanCalculator = realEstateLoanCalculator;
-        _monthlyInsurancePayment = monthlyInsurancePayment;
+        _insurancePayment = insurancePayment;
     }
 
     public double CalculateMonthlyPayment()
     {
-        return Math.Round(_realEstateLoanCalculator.CalculateMonthlyPayment() + _monthlyInsurancePayment.CalculateMonthlyInsurancePayment(), 2);
+        return Math.Round(_realEstateLoanCalculator.CalculateMonthlyPayment() + _insurancePayment.CalculateMonthlyInsurancePayment(), 2);
     }
 }

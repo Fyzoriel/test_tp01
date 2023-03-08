@@ -6,11 +6,11 @@ public class RealEstateLoanCalculator
     private readonly double _interestRate;
     private readonly LoanTermInMonths _loanTermInMonths;
     
-    public RealEstateLoanCalculator(LoanAmount loanAmount, double interestRate, LoanTermInMonths loanTermInMonths)
+    public RealEstateLoanCalculator(LoanData loanData, double interestRate)
     {
-        _loanAmount = loanAmount;
+        _loanAmount = loanData.LoanAmount;
         _interestRate = interestRate;
-        _loanTermInMonths = loanTermInMonths;
+        _loanTermInMonths = loanData.LoanTermInMonths;
     }
     
     public double CalculateMonthlyPayment()

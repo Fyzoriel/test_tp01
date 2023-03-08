@@ -1,15 +1,15 @@
 ﻿namespace TP2;
 
-public class MonthlyInsurancePayment
+public class InsurancePayment
 {
     private readonly LoanAmount _loanAmount;
     private readonly LoanTermInMonths _loanTermInMonths;
     private double _interestRate;
 
-    public MonthlyInsurancePayment(LoanAmount loanAmount, LoanTermInMonths loanTermInMonths, bool isSporty, bool isSmoker, bool hasHeartCondition, bool isComputerEngineer, bool isFighterPilot)
+    public InsurancePayment(LoanData loanData, bool isSporty, bool isSmoker, bool hasHeartCondition, bool isComputerEngineer, bool isFighterPilot)
     {
-        _loanAmount = loanAmount;
-        _loanTermInMonths = loanTermInMonths;
+        _loanAmount = loanData.LoanAmount;
+        _loanTermInMonths = loanData.LoanTermInMonths;
         CalculateInterestRate(isSporty, isSmoker, hasHeartCondition, isComputerEngineer, isFighterPilot);
     }
     

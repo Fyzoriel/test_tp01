@@ -5,13 +5,11 @@ namespace Test;
 public class UnitTest1
 {
     [Theory]
-    [InlineData(50000, 0.03, 300, 237.11)]
-    [InlineData(100000, 0.03, 300, 474.21)]
-    public void ItShouldReturnCorrectRealEstateMonthlyPayment(int loanAmount, double interestRate, int loanTermInMonths,
-        double expectedMonthlyPayment)
+    [MemberData(nameof(InternalRealEstateLoanMonthlyPaymentTestData.TestData), MemberType = typeof(InternalRealEstateLoanMonthlyPaymentTestData))]
+    public void ItShouldReturnCorrectRealEstateMonthlyPayment(LoanData loanData, double interestRate, double expectedMonthlyPayment)
     {
         // Arrange
-        var realEstateLoanCalculator = new RealEstateLoanCalculator(loanAmount, interestRate, loanTermInMonths);
+        var realEstateLoanCalculator = new RealEstateLoanCalculator(loanData, interestRate);
 
         // Act
         double monthlyPayment = realEstateLoanCalculator.CalculateMonthlyPayment();
@@ -21,33 +19,26 @@ public class UnitTest1
     }
 
     [Theory]
-    [InlineData(50000, 300, false, false, false, false, false, 12.5)]
-    [InlineData(50000, 300, true, false, false, false, false, 10.42)]
-    [InlineData(50000, 300, false, true, false, false, false, 18.75)]
-    [InlineData(50000, 300, false, false, true, false, false, 25)]
-    [InlineData(50000, 300, false, false, false, true, false, 10.42)]
-    [InlineData(50000, 300, false, false, false, false, true, 18.75)]
-    [InlineData(50000, 300, true, true, true, true, true, 33.33)]
+    [MemberData(nameof(InternalInsuranceMonthlyPaymentTestData.TestData), MemberType = typeof(InternalInsuranceMonthlyPaymentTestData))]
     public void ItShouldReturnCorrectMonthlyInsurancePayment(
-        int loanAmount, int loanTermInMonths, bool isSporty, bool isSmoker, bool hasHeartCondition,
+        LoanData loanData, bool isSporty, bool isSmoker, bool hasHeartCondition,
         bool isComputerEngineer, bool isFighterPilot, double expected)
     {
-        var monthlyInsurancePayment = new MonthlyInsurancePayment(loanAmount, loanTermInMonths, isSporty, isSmoker, hasHeartCondition,
+        var monthlyInsurancePayment = new InsurancePayment(loanData, isSporty, isSmoker, hasHeartCondition,
             isComputerEngineer, isFighterPilot);
         Assert.Equal(expected, monthlyInsurancePayment.CalculateMonthlyInsurancePayment());
     }
     
     [Theory]
-    [InlineData(50000, 0.03, 300, false, false, false, false, false, 249.61)]
-    [InlineData(50000, 0.03, 300, true, false, true, false, true, 266.28)]
+    [MemberData(nameof(InternalMonthlyPaymentTestData.TestData), MemberType = typeof(InternalMonthlyPaymentTestData))]
     public void ItShouldReturnCorrectMonthlyPayment(
-        int loanAmount, double interestRate, int loanTermInMonths,
+        LoanData loanData, double interestRate,
         bool isSporty, bool isSmoker, bool hasHeartCondition,
         bool isComputerEngineer, bool isFighterPilot, double expected)
     {
         // Arrange
-        var realEstateLoanCalculator = new RealEstateLoanCalculator(loanAmount, interestRate, loanTermInMonths);
-        var monthlyInsurancePayment = new MonthlyInsurancePayment(loanAmount, loanTermInMonths, isSporty, isSmoker, hasHeartCondition,
+        var realEstateLoanCalculator = new RealEstateLoanCalculator(loanData, interestRate);
+        var monthlyInsurancePayment = new InsurancePayment(loanData, isSporty, isSmoker, hasHeartCondition,
             isComputerEngineer, isFighterPilot);
         var loanCalculator = new LoanCalculator(realEstateLoanCalculator, monthlyInsurancePayment);
 
@@ -59,12 +50,11 @@ public class UnitTest1
     }
 
     [Theory]
-    [InlineData(50000, 0.03, 300, 21133)]
-    public void ItShouldReturnCorrectTotalLoanInterest(int loanAmount, double interestRate, int loanTermInMonths,
-        double expected)
+    [MemberData(nameof(InternalTotalLoanInterestTestData.TestData), MemberType = typeof(InternalTotalLoanInterestTestData))]
+    public void ItShouldReturnCorrectTotalLoanInterest(LoanData loanData, double interestRate, double expected)
     {
         // Arrange
-        var realEstateLoanCalculator = new RealEstateLoanCalculator(loanAmount, interestRate, loanTermInMonths);
+        var realEstateLoanCalculator = new RealEstateLoanCalculator(loanData, interestRate);
         
         // Act
         var totalLoanInterest = realEstateLoanCalculator.CalculateTotalInterest();
@@ -73,16 +63,20 @@ public class UnitTest1
         Assert.Equal(expected, totalLoanInterest);
     }
 
-    [Fact]
-    public void ItShouldReturnCorrectTotalInsuranceInterest()
+    [Theory]
+    [MemberData(nameof(InternalTotalInsuranceInterestTestData.TestData), MemberType = typeof(InternalTotalInsuranceInterestTestData))]
+    public void ItShouldReturnCorrectTotalInsuranceInterest(
+        LoanData loanData, bool isSporty, bool isSmoker, bool hasHeartCondition,
+        bool isComputerEngineer, bool isFighterPilot, double expected)
     {
         // Arrange
-        var monthlyInsurancePayment = new MonthlyInsurancePayment(50000, 300, false, false, false, false, false);
+        var monthlyInsurancePayment = new InsurancePayment(loanData, isSporty, isSmoker, hasHeartCondition,
+            isComputerEngineer, isFighterPilot);
         
         // Act
         var totalInsuranceInterest = monthlyInsurancePayment.CalculateTotalInsurancePayment();
         
         // Assert
-        Assert.Equal(3750, totalInsuranceInterest);
+        Assert.Equal(expected, totalInsuranceInterest);
     }
 }
