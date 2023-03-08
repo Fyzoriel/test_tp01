@@ -14,4 +14,9 @@ public class LoanCalculator
     {
         return Math.Round(_realEstateLoanCalculator.CalculateMonthlyPayment() + _insurancePayment.CalculateMonthlyInsurancePayment(), 2);
     }
+    
+    public static double CalculateCapitalRepaidAfterTime(double monthlyPayment, int timeInMonths)
+    {
+        return Math.Round(monthlyPayment * timeInMonths, 2);
+    }
 }

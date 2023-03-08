@@ -10,8 +10,6 @@ var hasHeartCondition = InputHandler.GetBoolInput("Do you have a heart condition
 var isComputerEngineer = InputHandler.GetBoolInput("Are you a computer engineer? (y/n): ");
 var isFighterPilot = InputHandler.GetBoolInput("Are you a fighter pilot? (y/n): ");
 
-Console.WriteLine(interestRate);
-
 var loanData = new LoanData(loanAmount, loanTermInMonths);
 var realEstateLoanCalculator = new RealEstateLoanCalculator(loanData, interestRate);
 
@@ -25,6 +23,7 @@ var monthlyInsurancePayment = insurancePayment.CalculateMonthlyInsurancePayment(
 var totalLoanInterest = realEstateLoanCalculator.CalculateTotalInterest();
 var totalInsurancePayment = insurancePayment.CalculateTotalInsurancePayment();
 
+Console.WriteLine('\n');
 Console.WriteLine($"Monthly payment: {monthlyPayment}");
 Console.WriteLine($"Monthly insurance payment: {monthlyInsurancePayment}");
 Console.WriteLine($"Total monthly payment: {monthlyPayment + monthlyInsurancePayment}");
@@ -32,6 +31,11 @@ Console.WriteLine($"Total monthly payment: {monthlyPayment + monthlyInsurancePay
 Console.WriteLine($"Total loan interest: {totalLoanInterest}");
 Console.WriteLine($"Total insurance payment: {totalInsurancePayment}");
 Console.WriteLine($"Total loan interest + total insurance payment: {totalLoanInterest + totalInsurancePayment}");
+
+Console.WriteLine('\n');
+var repaidMonths = InputHandler.GetLoanAmountInput("Enter number of months to repay: ");
+
+Console.WriteLine($"Capital repaid after {repaidMonths} months: {LoanCalculator.CalculateCapitalRepaidAfterTime(monthlyPayment, repaidMonths)}");
 
 Console.WriteLine("Press any key to exit...");
 Console.ReadKey();
