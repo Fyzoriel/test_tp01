@@ -3,11 +3,13 @@
 public class MonthlyInsurancePayment
 {
     private readonly LoanAmount _loanAmount;
+    private readonly LoanTermInMonths _loanTermInMonths;
     private double _interestRate;
 
-    public MonthlyInsurancePayment(LoanAmount loanAmount, bool isSporty, bool isSmoker, bool hasHeartCondition, bool isComputerEngineer, bool isFighterPilot)
+    public MonthlyInsurancePayment(LoanAmount loanAmount, LoanTermInMonths loanTermInMonths, bool isSporty, bool isSmoker, bool hasHeartCondition, bool isComputerEngineer, bool isFighterPilot)
     {
         _loanAmount = loanAmount;
+        _loanTermInMonths = loanTermInMonths;
         CalculateInterestRate(isSporty, isSmoker, hasHeartCondition, isComputerEngineer, isFighterPilot);
     }
     
@@ -25,5 +27,10 @@ public class MonthlyInsurancePayment
     {
         var result = _loanAmount * _interestRate / 100 / 12;
         return Math.Round(result, 2);
+    }
+    
+    public double CalculateTotalInsurancePayment()
+    {
+        return Math.Round(CalculateMonthlyInsurancePayment() * _loanTermInMonths, 2);
     }
 }

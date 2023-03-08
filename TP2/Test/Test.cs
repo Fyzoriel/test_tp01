@@ -21,18 +21,18 @@ public class UnitTest1
     }
 
     [Theory]
-    [InlineData(50000, false, false, false, false, false, 12.5)]
-    [InlineData(50000, true, false, false, false, false, 10.42)]
-    [InlineData(50000, false, true, false, false, false, 18.75)]
-    [InlineData(50000, false, false, true, false, false, 25)]
-    [InlineData(50000, false, false, false, true, false, 10.42)]
-    [InlineData(50000, false, false, false, false, true, 18.75)]
-    [InlineData(50000, true, true, true, true, true, 33.33)]
+    [InlineData(50000, 300, false, false, false, false, false, 12.5)]
+    [InlineData(50000, 300, true, false, false, false, false, 10.42)]
+    [InlineData(50000, 300, false, true, false, false, false, 18.75)]
+    [InlineData(50000, 300, false, false, true, false, false, 25)]
+    [InlineData(50000, 300, false, false, false, true, false, 10.42)]
+    [InlineData(50000, 300, false, false, false, false, true, 18.75)]
+    [InlineData(50000, 300, true, true, true, true, true, 33.33)]
     public void ItShouldReturnCorrectMonthlyInsurancePayment(
-        int loanAmount, bool isSporty, bool isSmoker, bool hasHeartCondition,
+        int loanAmount, int loanTermInMonths, bool isSporty, bool isSmoker, bool hasHeartCondition,
         bool isComputerEngineer, bool isFighterPilot, double expected)
     {
-        var monthlyInsurancePayment = new MonthlyInsurancePayment(loanAmount, isSporty, isSmoker, hasHeartCondition,
+        var monthlyInsurancePayment = new MonthlyInsurancePayment(loanAmount, loanTermInMonths, isSporty, isSmoker, hasHeartCondition,
             isComputerEngineer, isFighterPilot);
         Assert.Equal(expected, monthlyInsurancePayment.CalculateMonthlyInsurancePayment());
     }
@@ -47,7 +47,7 @@ public class UnitTest1
     {
         // Arrange
         var realEstateLoanCalculator = new RealEstateLoanCalculator(loanAmount, interestRate, loanTermInMonths);
-        var monthlyInsurancePayment = new MonthlyInsurancePayment(loanAmount, isSporty, isSmoker, hasHeartCondition,
+        var monthlyInsurancePayment = new MonthlyInsurancePayment(loanAmount, loanTermInMonths, isSporty, isSmoker, hasHeartCondition,
             isComputerEngineer, isFighterPilot);
         var loanCalculator = new LoanCalculator(realEstateLoanCalculator, monthlyInsurancePayment);
 
@@ -71,5 +71,18 @@ public class UnitTest1
         
         // Assert
         Assert.Equal(expected, totalLoanInterest);
+    }
+
+    [Fact]
+    public void ItShouldReturnCorrectTotalInsuranceInterest()
+    {
+        // Arrange
+        var monthlyInsurancePayment = new MonthlyInsurancePayment(50000, 300, false, false, false, false, false);
+        
+        // Act
+        var totalInsuranceInterest = monthlyInsurancePayment.CalculateTotalInsurancePayment();
+        
+        // Assert
+        Assert.Equal(3750, totalInsuranceInterest);
     }
 }
