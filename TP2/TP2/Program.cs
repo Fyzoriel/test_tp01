@@ -33,7 +33,7 @@ Console.WriteLine($"Total insurance payment: {totalInsurancePayment}");
 Console.WriteLine($"Total loan interest + total insurance payment: {totalLoanInterest + totalInsurancePayment}");
 
 Console.WriteLine('\n');
-var repaidMonths = InputHandler.GetLoanAmountInput("Enter number of months to repay: ");
+var repaidMonths = InputHandler.GetLoanTermInMonthsInput("Enter number of months to repay: ");
 
 Console.WriteLine($"Capital repaid after {repaidMonths} months: {LoanAndInsuranceCalculator.CalculateCapitalRepaidAfterTime(monthlyPayment, repaidMonths)}");
 
