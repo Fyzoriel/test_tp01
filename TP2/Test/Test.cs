@@ -25,6 +25,7 @@ public class UnitTest1
     [InlineData(50000, false, true, false, false, false, 18.75)]
     [InlineData(50000, false, false, true, false, false, 25)]
     [InlineData(50000, false, false, false, true, false, 10.42)]
+    [InlineData(50000, false, false, false, false, true, 18.75)]
     public void ItShouldReturnCorrectMonthlyInsurancePayment(
         int loanAmount, bool isSporty, bool isSmoker, bool hasHeartCondition, 
         bool isComputerEngineer, bool isFighterPilot, double expected)

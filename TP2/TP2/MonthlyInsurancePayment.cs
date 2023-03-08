@@ -18,6 +18,7 @@ public class MonthlyInsurancePayment
         if (isSmoker) _interestRate += 0.15;
         if (hasHeartCondition) _interestRate += 0.3;
         if (isComputerEngineer) _interestRate -= 0.05;
+        if (isFighterPilot) _interestRate += 0.15;
     }
     
     public double CalculateMonthlyInsurancePayment()
