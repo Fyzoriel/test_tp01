@@ -8,7 +8,7 @@ public class InternalTotalLoanInterestTestData
     {
         get
         {
-            yield return new object[] { new LoanData(50000, 300), 0.03, 21133 };
+            yield return new object[] { new LoanData(50000, 300), 3, 21133 };
         }
     }
 }

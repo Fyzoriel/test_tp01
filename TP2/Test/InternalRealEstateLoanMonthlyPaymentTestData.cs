@@ -8,8 +8,8 @@ public class InternalRealEstateLoanMonthlyPaymentTestData
     {
         get
         {
-            yield return new object[] {new LoanData(50000, 300), 0.03, 237.11};
-            yield return new object[] {new LoanData(100000, 300), 0.03, 474.21};
+            yield return new object[] {new LoanData(50000, 300), 3, 237.11};
+            yield return new object[] {new LoanData(100000, 300), 3, 474.21};
         }
     }
 }

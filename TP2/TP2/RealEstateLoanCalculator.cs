@@ -15,7 +15,8 @@ public class RealEstateLoanCalculator
     
     public double CalculateMonthlyPayment()
     {
-        double monthlyInterestRate = _interestRate / 12;
+        double interestRate = _interestRate / 100;
+        double monthlyInterestRate = interestRate / 12;
         return Math.Round((_loanAmount * monthlyInterestRate) / (1 - Math.Pow(1 + monthlyInterestRate, -_loanTermInMonths)), 2);
     }
     
